@@ -32,9 +32,14 @@
 			fclose( $arquivoLeitura );
 
 			$this->percorreLinhas();
+			$funcao = "";
 
 			foreach ($this->indiceDasFuncoes as $ind => $local ) {
-				echo $this->arquivo[ $local ];
+				$funcao= $this->extraindoFuncao( $this->arquivo[ $local ] );
+				echo "<br/>";
+				echo $this->extraindoParametros( $funcao );
+				echo "<br/>";
+				echo $funcao;
 			}
 
 		}
@@ -76,5 +81,17 @@
 				return true;
 
 			return false;
+		}
+
+		public function extraindoFuncao( $texto )
+		{
+			return  substr( $texto ,  strpos( $texto, 'function' ) + strlen( 'function' ) , strpos( $texto, ')' ) );
+		}
+
+		public function extraindoParametros( $texto )
+		{
+			$corte = substr( $texto, strpos( $texto, '(') +1);
+
+			return  substr( $corte , 0 , strrpos( $corte, ')' ) );
 		}
 	}
