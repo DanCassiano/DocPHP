@@ -29,8 +29,11 @@
 				$this->arquivo[] = $linha;
 			}
 
-			fclose( $arquivoLeitura );
+			fclose( $arquivoLeitura );			
 
+		}
+
+		public function getDoc(){
 			$this->percorreLinhas();
 			$funcao = "";
 
@@ -41,7 +44,6 @@
 				echo "<br/>";
 				echo $funcao;
 			}
-
 		}
 
 		private function percorreLinhas()

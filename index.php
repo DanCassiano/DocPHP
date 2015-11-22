@@ -12,7 +12,7 @@
 
 		$sel = new Seletor();
 		$sel->abreArquivo( "exemplo.php" );
-
+		$sel->getDoc();
 		
 	 ?>
 </body>
